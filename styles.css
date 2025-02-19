@@ -223,7 +223,7 @@ form button:hover {
         font-size: 14px;
     }
 }
-/* Estilo para el icono del menú hamburguesa */
+/* Estilo para el icono del menú hamburguesa (a la izquierda) */
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -231,7 +231,7 @@ form button:hover {
     height: 25px;
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px; /* Mover a la izquierda */
     flex-direction: column;
     justify-content: space-between;
 }
@@ -242,22 +242,51 @@ form button:hover {
     width: 100%;
 }
 
-/* Ocultar el menú por defecto en móviles */
+/* Menú */
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilo para cada ítem del menú */
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Botón hamburguesa visible solo en dispositivos móviles */
 @media screen and (max-width: 768px) {
-    /* Hacer que el menú se oculte por defecto */
     #menu {
-        display: none;
+        display: none; /* Ocultar el menú por defecto en móviles */
         flex-direction: column;
         padding-left: 0;
+        width: 100%;
+        background-color: #333; /* Fondo oscuro para el menú */
     }
 
-    /* Mostrar el botón */
+    nav ul li {
+        margin: 10px 0; /* Aumentar el espacio entre los ítems */
+        text-align: center;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Mostrar el botón hamburguesa */
     .menu-icon {
         display: flex;
     }
 }
 
-/* Mostrar el menú */
-.menu-icon.active + #menu {
+/* Mostrar el menú cuando el botón hamburguesa es clickeado */
+#menu.active {
     display: flex;
 }
